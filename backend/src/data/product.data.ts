@@ -1,0 +1,58 @@
+export const sampleProducts = [
+  {
+    name: 'EcoFlow RIVER 2 Pro Portable Power Station',
+    description: 'Power your essentials anywhere with this portable station. Featuring multiple outlets, fast charging, and a compact design, it’s ideal for camping, emergency backup, or on-the-go power.',
+    price: '500.00',
+    stock: 50,
+    imageUrl: 'https://ocohjxbhun.ufs.sh/f/tusHOP3SRakyQpi9DMLuKhMP1Uw7Tzx92H4YBSCFRgeocAI6',
+  },
+  {
+    name: 'DJI Mini 3 Pro Drone',
+    description: 'Capture stunning aerial shots with this high-performance, lightweight drone. It features a 4K camera, extended battery life, and intelligent flight modes for professional-quality content.',
+    price: '1000.00',
+    stock: 25,
+    imageUrl: 'https://ocohjxbhun.ufs.sh/f/tusHOP3SRaky7papXIZFRSOwJGgXos28jL3VHKdUxhnqDk09',
+  },
+  {
+    name: 'Sony WH-1000XM5 Wireless Noise-Canceling Headphones',
+    description: 'Immerse yourself in pure sound. These industry-leading headphones offer superior noise cancellation, exceptional audio quality, and a comfortable, lightweight design for long listening sessions.',
+    price: '250.00',
+    stock: 100,
+    imageUrl: 'https://ocohjxbhun.ufs.sh/f/tusHOP3SRakykbT2AdqCfKNyJDiZMY2WrXF4Td1GQuEtgs8H',
+  },
+  {
+    name: 'Samsung 4K UHD Smart TV',
+    description: 'Elevate your home entertainment. This smart TV delivers breathtaking 4K resolution, vibrant colors, and built-in streaming apps for seamless access to your favorite movies and shows.',
+    price: '750.00',
+    stock: 30,
+    imageUrl: 'https://ocohjxbhun.ufs.sh/f/tusHOP3SRakyjSA90ZselyPvfm5dNiWwOjEqTh7L8z6oYIbR',
+  },
+  {
+    name: 'Logitech MX Master 3S Wireless Performance Mouse',
+    description: 'Designed for productivity and precision. This ergonomic mouse offers silent clicks, an ultra-fast scroll wheel, and customizable buttons, making it a powerful tool for creators and professionals.',
+    price: '100.00',
+    stock: 80,
+    imageUrl: 'https://ocohjxbhun.ufs.sh/f/tusHOP3SRakyS9N4y5Yy4RxUakB6sjrN0twKYuo3fOeVLPzd',
+  },
+  {
+    name: 'Bose Portable Smart Speaker',
+    description: 'Enjoy powerful, 360-degree sound on the go. This speaker is both a Bluetooth speaker and a smart speaker with voice control, perfect for music at home or anywhere your adventures take you.',
+    price: '300.00',
+    stock: 40,
+    imageUrl: 'https://ocohjxbhun.ufs.sh/f/tusHOP3SRakyA1AHMvWXdVaQh8iWCIlK9MgBxc5yoL2seST3',
+  },
+  {
+    name: 'Kindle Paperwhite Signature Edition',
+    description: 'Experience a book-like feel with this waterproof e-reader. It features a glare-free display, adjustable warm light, and wireless charging, perfect for reading indoors or out.',
+    price: '190.00',
+    stock: 60,
+    imageUrl: 'https://ocohjxbhun.ufs.sh/f/tusHOP3SRakyxFTGxRxcS5Mz41aUprsPwuTW763coqvnFCeK',
+  },
+  {
+    name: 'Philips Hue Smart Lighting Starter Kit',
+    description: 'Transform your home with smart lighting. This kit includes bulbs and a hub that you can control from your phone to create the perfect ambiance, from cozy warm light to vibrant colors.',
+    price: '150.00',
+    stock: 15,
+    imageUrl: 'https://ocohjxbhun.ufs.sh/f/tusHOP3SRakyNcx99fwKBd4n6qNZLxzA8rYRje1MIvcQtXwo',
+  },
+];

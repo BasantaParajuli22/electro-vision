@@ -1,0 +1,32 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Electro Vision Logo</title>
+  <desc id="desc">An eye symbol with a centered lightning bolt pupil, styled with an electric gradient and soft glow.</desc>
+
+  <!-- Defs: gradient + glow filter -->
+  <defs>
+    <linearGradient id="elec" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00E5FF"/>
+      <stop offset="1" stop-color="#7C4DFF"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Eye outline -->
+  <path d="M16 128C38 84 82 56 128 56s90 28 112 72c-22 44-66 72-112 72S38 172 16 128Z"
+        stroke="url(#elec)" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Iris -->
+  <circle cx="128" cy="128" r="34" fill="none" stroke="url(#elec)" stroke-width="10"/>
+
+  <!-- Lightning bolt (centered on 128,128) -->
+  <path d="M134 100l-20 28h18l-12 28l30-34h-18l2-22Z"
+        fill="url(#elec)" opacity="0.6" filter="url(#glow)"/>
+  <path d="M134 100l-20 28h18l-12 28l30-34h-18l2-22Z"
+        fill="url(#elec)"/>
+</svg>
