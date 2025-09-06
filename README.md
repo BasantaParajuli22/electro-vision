@@ -6,21 +6,21 @@ ElectroVision is a full-stack e-commerce web application designed for selling el
 
 ## Showcase
 
-| **Home Page** | **Products Page** |
-| ------------- | ----------------- |
-| ![Home](./images/home.png) | ![Products](./images/products.png) |
+| **Home Page** | **Empty Order History** |
+| ------------- | ----------------------- |
+| ![Home](./images/home.png) | ![Empty](./images/order_blank.png) |
 
-| **Product Detail** | **Shopping Cart** |
-| ------------------ | ----------------- |
-| ![Detail](./images/detail.png) | ![Cart](./images/cart.png) |
+| **Products Page** | **Product Detail** |
+| ----------------- | ------------------ |
+| ![Products](./images/products.png) | ![Detail](./images/detail.png) |
 
-| **Checkout** | **Order History** |
-| ------------ | ----------------- |
-| ![Checkout](./images/checkout.png) | ![Order History](./images/after_order.png) |
+| **Shopping Cart** | **Checkout** |
+| ----------------- | ------------ |
+| ![Cart](./images/cart.png) | ![Checkout](./images/checkout.png) |
 
-| **Email Confirmation** | **Empty Order History** |
-| ---------------------- | ----------------------- |
-| ![Mail](./images/mail.png) | ![Empty](./images/order_blank.png) |
+| **Email Confirmation** | **Order History** |
+| ---------------------- | ----------------- |
+| ![Mail](./images/mail.png) | ![Order History](./images/after_order.png) |
 
 ---
 
