@@ -14,7 +14,7 @@ const app = express();
 // This route must come BEFORE your global express.json() middleware.
 // It uses a raw body parser because Stripe requires it for signature verification.
 app.post(
-    '/stripe/webhook', 
+    '/api/stripe/webhook', 
     express.raw({ type: 'application/json' }), 
     handleStripeWebhook
 );

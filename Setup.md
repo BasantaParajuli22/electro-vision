@@ -1,28 +1,12 @@
+I have updated the **Environment Variables** and **Prerequisites** sections to include your specific keys for Recaptcha, Stripe, and the database. I also ensured the backend and frontend variable names match your provided list.
+
+-----
+
 # ElectroVision - Modern E-Commerce Store
 
-ElectroVision is a full-stack e-commerce web application designed for selling electronic products. Users can browse a wide range of electronics, manage their shopping cart, and securely purchase items. After a successful purchase, a detailed order confirmation is sent directly to their email.
- 
----
+ElectroVision is a full-stack e-commerce web application designed for selling electronic products. Users can browse a wide range of electronics, manage their shopping cart, and securely purchase items via Stripe.
 
-## Showcase
-
-| **Home Page** | **Empty Order History** |
-| ------------- | ----------------------- |
-| ![Home](./images/home.png) | ![Empty](./images/order_blank.png) |
-
-| **Products Page** | **Product Detail** |
-| ----------------- | ------------------ |
-| ![Products](./images/products.png) | ![Detail](./images/detail.png) |
-
-| **Shopping Cart** | **Checkout** |
-| ----------------- | ------------ |
-| ![Cart](./images/cart.png) | ![Checkout](./images/checkout.png) |
-
-| **Email Confirmation** | **Order History** |
-| ---------------------- | ----------------- |
-| ![Mail](./images/mail.png) | ![Order History](./images/after_order.png) |
-
----
+-----
 
 ## Features
 
@@ -53,8 +37,8 @@ ElectroVision is a full-stack e-commerce web application designed for selling el
 **1. Clone the Repository**
 
 ```bash
-git clone https://github.com/BasantaParajuli22/electro-vision.git
-cd electro-vision
+git clone https://github.com/your-username/electrovision.git
+cd electrovision
 ```
 
 **2. Backend Setup**

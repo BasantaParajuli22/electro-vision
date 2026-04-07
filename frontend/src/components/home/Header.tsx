@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { LogOut, ShoppingCart } from 'lucide-react'; // Changed icon
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 
 const Header = () => {
@@ -88,16 +88,22 @@ const Header = () => {
             <>
               <NavLink
                 to="/cart"
-                className="p-2 text-gray-600 hover:text-indigo-600"
+                className="p-2 text-gray-600 hover:text-blue-600"
                 title="Your Cart"
               >
                 <ShoppingCart className="h-6 w-6" />
               </NavLink>
               <Link
                 to="/login"
-                className="bg-indigo-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-shadow shadow-sm hover:shadow-md"
+                className="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-shadow shadow-sm hover:shadow-md"
               >
-                Sign In
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-shadow shadow-sm hover:shadow-md"
+              >
+                Sign up
               </Link>
             </>
           )}

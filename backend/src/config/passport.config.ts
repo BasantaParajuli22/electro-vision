@@ -1,6 +1,8 @@
 import passport from "passport";
 import passportGoogle, { Profile, VerifyCallback } from "passport-google-oauth20";
 import { eq } from "drizzle-orm";
+import { Strategy as LocalStrategy } from 'passport-local';
+import bcrypt from 'bcryptjs';  
 
 import { MyUserType } from "../types/index";
 import { db } from "../db/index";
@@ -44,34 +46,68 @@ passport.use(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL:  `${SERVER_BASE_URL}/auth/google/callback`, //redirects user to this after login
+      callbackURL: `${SERVER_BASE_URL}/auth/google/callback`,
     },
     async (accessToken: string, refreshToken: string, profile: Profile, done: VerifyCallback) => {
       try {
-        //check for existing user 
+        const googleEmail = profile.emails?.[0].value || "no email defined";
+
+        // 1. Returning Google user — find by googleId
         const user = await db.select().from(users).where(eq(users.googleId, profile.id)).limit(1);
-        
         if (user.length > 0) {
-          // If the user exists, return the user object
           return done(null, user[0]);
         }
 
-        // If the user does not exist, create a new user record
+        // 2. Email already exists from a local signup — block it
+        const existingByEmail = await db.select().from(users).where(eq(users.email, googleEmail)).limit(1);
+        if (existingByEmail.length > 0) {
+          return done(null, false, {
+            message: "This email is already registered with a password. Please log in with email and password.",
+          });
+        }
+
+        // 3. Brand new user — create them
         const newUser = {
-          googleId: profile.id,
-          username: profile.displayName || "no_name",
-          email: profile.emails?.[0].value || "no email defined",
-          avatarUrl: profile.photos?.[0].value,
+          googleId:     profile.id,
+          username:     profile.displayName || "no_name",
+          email:        googleEmail,
+          avatarUrl:    profile.photos?.[0].value,
+          authProvider: "google",
         };
 
-        //inset user
         const createdUser = await db.insert(users).values(newUser).returning();
-        
-        // Return the newly created user object
         return done(null, createdUser[0]);
+
       } catch (err) {
         return done(err as Error);
       }
     }
   )
 );
+
+
+// Local Strategy (new) 
+//for also allowing local login (using email and password)
+passport.use('local', new LocalStrategy(
+  { usernameField: 'email' },   // we use email, not username
+  async (email, password, done) => {
+    try {
+      const [user] = await db.select().from(users).where(eq(users.email, email));
+
+      if (!user)
+        return done(null, false, { message: 'No account found with that email' });
+
+      if (user.authProvider === 'google')
+        return done(null, false, { message: 'This email is registered with Google. Use Google login.' });
+
+      if (!user.password)
+        return done(null, false, { message: 'Invalid credentials' });
+
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch)
+        return done(null, false, { message: 'Incorrect password' });
+
+      return done(null, user);
+    } catch (e) { return done(e); }
+  }
+));

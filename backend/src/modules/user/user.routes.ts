@@ -15,6 +15,7 @@ router.get('/me', (req, res) => {
       displayName: user.username, // Or displayName
       email: user.email,
       avatar: user.avatarUrl,
+      authProvider: user.authProvider,
     };
 
     res.status(200).json({ user: userDataForFrontend });

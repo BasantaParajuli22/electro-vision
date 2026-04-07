@@ -1,4 +1,4 @@
-import { Search, CreditCard, Truck } from 'lucide-react'; // Changed icons
+import { Search, CreditCard, Truck } from 'lucide-react';
 
 const HowItWorks = () => {
   const steps = [

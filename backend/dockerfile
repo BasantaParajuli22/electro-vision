@@ -1,0 +1,14 @@
+#for nodejs ts project
+from node:21-alpine 
+workdir /app
+copy package*.json ./
+run npm i 
+copy . .
+run npm run build
+expose 5000
+
+cmd ["node","dist/index.js"]
+
+
+
+# it needs to have double quotation("") for cmd not single quotation 

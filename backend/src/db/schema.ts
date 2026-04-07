@@ -2,12 +2,14 @@ import { InferSelectModel, relations } from "drizzle-orm";
 import { decimal, integer, pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
-    id:         serial("id").primaryKey(),
-    username:   varchar("username",{length: 50}).default("zoro").notNull(),
-    email:      varchar("email",{length: 50}).notNull(),
-    googleId:   text("google_id").notNull().unique(),
-    avatarUrl:  text("avatar_url").default("https://ocohjxbhun.ufs.sh/f/tusHOP3SRakyxg8uE9cS5Mz41aUprsPwuTW763coqvnFCeKQ"),
-    createdAt:  timestamp("created_at").defaultNow(),
+    id:           serial("id").primaryKey(),
+    username:     varchar("username", { length: 50 }).default("zoro").notNull(),
+    email:        varchar("email", { length: 50 }).notNull().unique(),
+    password:     text("password"),
+    googleId:     text("google_id").unique(),      
+    avatarUrl:    text("avatar_url").default("https://ocohjxbhun.ufs.sh/f/tusHOP3SRakyxg8uE9cS5Mz41aUprsPwuTW763coqvnFCeKQ"),
+    authProvider: varchar("auth_provider", { length: 20 }).default("google").notNull(), // "google" | "local"
+    createdAt:    timestamp("created_at").defaultNow(),
 });
 
 export const products = pgTable("products", {

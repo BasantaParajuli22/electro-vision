@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import type { Product } from '../types';
-import ProductCard from './ProductCard';
+import ProductCard from '../components/ProductCard';
 
 // You can reuse your FullPageSpinner or create a smaller one for content loading
 const LoadingSpinner = () => (

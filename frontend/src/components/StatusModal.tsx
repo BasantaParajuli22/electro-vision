@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation within the modal
+import { Link } from 'react-router-dom';
 
 interface StatusModalProps {
   isOpen: boolean;

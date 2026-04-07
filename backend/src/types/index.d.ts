@@ -1,11 +1,13 @@
 
-// This is what gets attached to req.user by Passport.
-export interface MyUserType{
-    id: number,    // The correct type for your Drizzle-ORM schema
-    username: string,
-    googleId?: string | null, //googleId can be null in your table
-    email: string,
-    avatarUrl: string | null,
+// This is what gets attached to req.user
+export interface MyUserType {
+  id: number;
+  username: string;
+  googleId?: string | null;
+  email: string;
+  avatarUrl: string | null;
+  password?: string | null;
+  authProvider: string;
 }
 
 declare global {
