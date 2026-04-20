@@ -2,9 +2,10 @@ import type { Config } from 'drizzle-kit';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
+// schema: 'src/db/schema.ts', //for local development
 
 export default {
-  schema: 'src/db/schema.ts',
+  schema: 'dist/db/schema.js',
   out: './drizzle',
   dialect: 'postgresql',
   dbCredentials: {

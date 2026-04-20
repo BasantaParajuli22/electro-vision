@@ -1,10 +1,21 @@
+
 #for nodejs ts project
-from node:21-alpine 
+from node:21-alpine as builder
 workdir /app
 copy package*.json ./
 run npm i 
 copy . .
 run npm run build
+run npm run generate
+
+
+
+from node:21-alpine
+workdir /app
+copy package*.json ./
+run npm i --omit=dev
+copy --from=builder /app/dist ./dist
+copy --from=builder /app/drizzle ./drizzle
 expose 5000
 
 cmd ["node","dist/index.js"]
@@ -12,3 +23,5 @@ cmd ["node","dist/index.js"]
 
 
 # it needs to have double quotation("") for cmd not single quotation 
+# workdir /app creates dir and enters it 
+# ./ means current directory

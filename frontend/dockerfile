@@ -4,6 +4,15 @@ workdir /app
 copy package*.json ./
 run npm i
 copy . .
+
+arg VITE_FRONTEND_PORT
+arg VITE_SERVER_BASE_URL
+arg VITE_RECAPTCHA_SITE_KEY
+
+env VITE_FRONTEND_PORT=${VITE_FRONTEND_PORT}
+env VITE_SERVER_BASE_URL=${VITE_SERVER_BASE_URL}
+env VITE_RECAPTCHA_SITE_KEY=${VITE_RECAPTCHA_SITE_KEY}
+
 run npm run build
 
 from nginx:alpine 
