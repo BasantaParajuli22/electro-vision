@@ -50,7 +50,7 @@ async function startServer() {
   // seedProducts(); //
   try {
     app.listen (PORT, ()=>{
-      console.log(`Server running at http:///localhost:${process.env.PORT}`);
+      console.log(`Server running at ${process.env.SERVER_BASE_URL}`);
     } );
   } catch (error) {
     console.error(' Failed to start server: ', error);

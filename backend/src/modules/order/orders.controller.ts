@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { MyUserType } from '../../types'; // Import your custom user type
 import { db } from '../../db';
-import {  orders, products } from '../../db/schema';
+import {  orders } from '../../db/schema';
 import { eq } from 'drizzle-orm';
 
 /**

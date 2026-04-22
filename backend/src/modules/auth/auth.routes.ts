@@ -2,7 +2,7 @@ import { Router } from 'express';
 import * as authController from './auth.controller';
 import passport from 'passport';
 
-const FRONTEND_BASE_URL = process.env.FRONTEND_BASE_URL || "http://localhost:5173";
+export const FRONTEND_BASE_URL = process.env.FRONTEND_BASE_URL || "http://localhost:5173";
 
 
 const router = Router();

@@ -1,8 +1,6 @@
 import {
   Cart, cart, 
   CartItems, cartItems, 
-  Order, orders, 
-  OrderItems, orderItems,
   products, Product,  
   User, users} from './schema';
 import { db } from "../db/index";

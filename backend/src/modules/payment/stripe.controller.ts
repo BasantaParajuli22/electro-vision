@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import stripe from "../../config/stripe.config";
 import * as queries from '../../db/queries';
 import { MyUserType } from '../../types'; // type for req.user
+import { FRONTEND_BASE_URL } from "../auth/auth.routes";
 
-const FRONTEND_BASE_URL = process.env.FRONTEND_BASE_URL || "http://localhost:5173";
 
 //uses cart items
 //this checkout is for many product items with any quantity 

@@ -3,7 +3,7 @@ import { MyUserType } from '../../types/index'; // Your user type
 
 const router = Router();
 
-router.get('/me', (req, res) => {
+router.get('/', (req, res) => {
   // Passport attaches the user to `req.user` if a session is valid
   if (req.user) {
     // The user is authenticated, send their data as JSON

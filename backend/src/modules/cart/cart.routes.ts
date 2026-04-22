@@ -4,9 +4,9 @@ import { isAuthenticated } from "../../middleware/auth.middleware";
 
 const router = Router();
 
-router.post("/cart/add", isAuthenticated, addToCart); // POST { userId, productId, quantity }
-router.get("/cart", isAuthenticated, getCartItems);       
-router.patch("/cart/item/:itemId", isAuthenticated, updateItemQuantity);
-router.delete("/cart/item/:itemId", isAuthenticated, removeItemFromCart);
+router.get("/", isAuthenticated, getCartItems);       
+router.post("/add", isAuthenticated, addToCart); // POST { userId, productId, quantity }
+router.patch("/item/:itemId", isAuthenticated, updateItemQuantity);
+router.delete("/item/:itemId", isAuthenticated, removeItemFromCart);
 
 export default router;

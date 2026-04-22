@@ -8,9 +8,8 @@ import { saveOtp, getOtp, deleteOtp } from "../../utils/otpStore";
 import crypto from "crypto";
 import { OtpEmailDetails, sendOtpEmail } from '../mail/otpverify.service';
 import axios from 'axios';
+import { FRONTEND_BASE_URL } from './auth.routes';
 
-
-const FRONTEND_BASE_URL = process.env.FRONTEND_BASE_URL || "http://localhost:5173";
 
 // Initiate Google OAuth
 //this redirects them to Google's OAuth consent screen

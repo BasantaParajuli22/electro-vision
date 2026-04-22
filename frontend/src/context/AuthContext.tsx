@@ -32,10 +32,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       try {
         const response = await axios.get(`${SERVER_BASE_URL}/api/me`, { //get user info from this route
           withCredentials: true, // IMPORTANT: This is needed to send cookies
+          timeout: 5000, //5secs
         });
         setUser(response.data.user);
       } catch (error) {
-        console.log("No active session or verification failed.");
+        console.log("No active session or verification failed.", error);
         setUser(null);
       } finally {
         setIsLoading(false);
@@ -79,3 +80,20 @@ export const useAuth = () => {
   }
   return context;
 };
+
+
+
+//add timeout
+// const verifyUser = async () => {
+//   try {
+//     const response = await axios.get(`${SERVER_BASE_URL}/api/me`, {
+//       withCredentials: true,
+//       timeout: 10000 // If it takes >10s, fail and move on
+//     });
+//     setUser(response.data.user);
+//   } catch (error) {
+//     setUser(null);
+//   } finally {
+//     setIsLoading(false);
+//   }
+// };
