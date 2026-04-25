@@ -2,7 +2,7 @@ import { sampleProducts } from "../data/product.data";
 import {pool, db } from "../db/index";
 import * as schema from '../db/schema';
 import { count } from 'drizzle-orm';
-
+import 'dotenv/config';
 
 export async function seedInitialData() {
   try {

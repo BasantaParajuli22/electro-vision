@@ -7,4 +7,5 @@ stripe listen --forward-to localhost:5000/api/stripe/webhook
 ctrl \  or ctrl c  to stop stripe
 
 
+psql "DATABASE_URL=postgresql://full url to connect to postgres db"
 
