@@ -3,6 +3,7 @@ import axios, { isAxiosError } from 'axios';
 import type { OrderWithDetails } from '../types';
 import OrderCard from '../components/OrderCard';
 import { Link } from 'react-router-dom';
+import { SERVER_BASE_URL } from '../config/config';
 
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center py-20">
@@ -18,7 +19,7 @@ const   OrderHistoryPage = () => {
   useEffect(() => {
     const fetchOrderHistory = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/orders/history', {
+        const response = await axios.get(`${SERVER_BASE_URL}/api/orders/history`, {
           withCredentials: true, // Essential for session-based authentication
         });
         setOrders(response.data);

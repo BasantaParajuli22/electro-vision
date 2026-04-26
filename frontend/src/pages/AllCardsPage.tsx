@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import type { Product } from '../types';
 import ProductCard from '../components/ProductCard';
+import { SERVER_BASE_URL } from '../config/config';
 
 // You can reuse your FullPageSpinner or create a smaller one for content loading
 const LoadingSpinner = () => (
@@ -20,7 +21,7 @@ const AllCardsPage = () => {
     const fetchProducts = async () => {
       try {
         // Use the same base URL as your AuthContext or an env variable
-        const response = await axios.get('http://localhost:5000/api/product/');
+        const response = await axios.get(`${SERVER_BASE_URL}/api/product/`);
         // Your backend returns { message: "...", products: [...] }
         setProducts(response.data.products);
       } catch (err) {

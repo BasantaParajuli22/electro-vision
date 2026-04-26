@@ -3,7 +3,7 @@ import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import { UserRoundPlus } from "lucide-react";
 import { toast } from "sonner";
-import { API_BASE_URL } from "../../config/config";
+import { SERVER_BASE_URL } from "../../config/config";
 import { ValidatedInput, type Field } from "./FieldValidation";
 
 
@@ -61,7 +61,7 @@ const SignUpPage = () =>{
 
     setRegLoading(true);
     try {
-      await axios.post(`${API_BASE_URL}/auth/send-otp`, {
+      await axios.post(`${SERVER_BASE_URL}/auth/send-otp`, {
         username: regUsername.field.value,
         email:    regEmail.field.value,
         password: regPass.field.value,
@@ -94,7 +94,7 @@ const SignUpPage = () =>{
     if (otpValue.length !== 6) { toast.error("Enter the 6-digit code."); return; }
     setRegLoading(true);
     try {
-      await axios.post(`${API_BASE_URL}/auth/verify-otp`, 
+      await axios.post(`${SERVER_BASE_URL}/auth/verify-otp`, 
       { email: regEmail2, otp: otpValue }
       );
 

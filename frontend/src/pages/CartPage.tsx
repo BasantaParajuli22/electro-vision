@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import type { CartItemWithProduct } from '../types'; // Adjust the import path as needed
 import CartItemRow from '../components/CartItemRow';
+import { SERVER_BASE_URL } from '../config/config';
 
 
 const CartPage = () => {
@@ -19,7 +20,7 @@ const CartPage = () => {
             }
 
             try {
-                const response = await fetch('http://localhost:5000/api/cart',{
+                const response = await fetch(`${SERVER_BASE_URL}/api/cart`,{
                     credentials: "include",
                 });
                 
@@ -66,7 +67,7 @@ const CartPage = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:5000/api/cart/item/${itemId}`, {
+            const response = await fetch(`${SERVER_BASE_URL}api/cart/item/${itemId}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -91,7 +92,7 @@ const CartPage = () => {
     // handle item deletion
     const handleDeleteItem = async (itemId: number) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/cart/item/${itemId}`, {
+            const response = await fetch(`${SERVER_BASE_URL}/api/cart/item/${itemId}`, {
                 method: 'DELETE',
                 credentials: 'include',
             });
@@ -127,7 +128,7 @@ const CartPage = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/checkout/create-cart-session', {
+            const response = await fetch(`${SERVER_BASE_URL}/api/checkout/create-cart-session`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,4 +1,5 @@
 import transporter from "../../config/mail.config";
+import { FRONTEND_BASE_URL } from "../auth/auth.routes";
 
 // This interface for a single item remains the same
 interface EmailOrderItem {
@@ -83,7 +84,7 @@ export async function sendConfirmationEmail(details: OrderDetailsForEmail) {
                     </table>
 
                     <div style="text-align: center; margin: 30px 0;">
-                        <a href="http://localhost:5173/order-history" style="background-color: #198754; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px;">View Order History</a>
+                        <a href="${FRONTEND_BASE_URL}/order-history" style="background-color: #198754; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px;">View Order History</a>
                     </div>
 
                     <p>If you have any questions, feel free to reply directly to this email.</p>

@@ -7,11 +7,14 @@ import bcrypt from 'bcryptjs';
 import { MyUserType } from "../types/index";
 import { db } from "../db/index";
 import { users } from "../db/schema";
+import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, SERVER_BASE_URL } from "./config.config";
+
+
+// const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || "GOOGLE_CLIENT_ID";
+// const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || "GOOGLE_CLIENT_SECRET";
+
 
 const GoogleStrategy = passportGoogle.Strategy;
-const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || "GOOGLE_CLIENT_ID";
-const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || "GOOGLE_CLIENT_SECRET";
-const SERVER_BASE_URL = process.env.SERVER_BASE_URL || "http://localhost:5000";
 
 
 // Takes the full user object and stores only the user ID

@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, useEffect, type ReactNode } from 'react';
 import axios from 'axios';
+import { SERVER_BASE_URL } from '../config/config';
 
 // Define the shape of your user data
 interface User {
@@ -19,8 +20,6 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Define the API base URL. Use environment variables for this in a real app.
-const SERVER_BASE_URL = import.meta.env.VITE_SERVER_BASE_URL || 'http://localhost:5000';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null); //use interface User
@@ -31,7 +30,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const verifyUser = async () => {
       try {
         const response = await axios.get(`${SERVER_BASE_URL}/api/me`, { //get user info from this route
-          withCredentials: true, // IMPORTANT: This is needed to send cookies
+          withCredentials: true, 
           timeout: 5000, //5secs
         });
         setUser(response.data.user);

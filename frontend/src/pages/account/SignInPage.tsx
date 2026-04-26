@@ -4,7 +4,7 @@ import {  ValidatedInput } from "./FieldValidation";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { API_BASE_URL } from "../../config/config";
+import { SERVER_BASE_URL } from "../../config/config";
 import { Check, LogIn } from "lucide-react";
 import { GoogleIcon } from "../../components/assets/icons/icon";
 import { useField } from "./useField";
@@ -34,7 +34,7 @@ const SignInPage = () =>{
     setLoginLoading(true);
 
     try {
-    await axios.post(`${API_BASE_URL}/auth/login`, 
+    await axios.post(`${SERVER_BASE_URL}/auth/login`, 
       { email: loginUser.field.value, password: loginPass.field.value, captchaToken:token },
       { withCredentials: true }
     );
@@ -82,7 +82,7 @@ const SignInPage = () =>{
       {/* OAuth buttons */}
       <div className="flex">
         <a
-          href={`${API_BASE_URL}/auth/google`}
+          href={`${SERVER_BASE_URL}/auth/google`}
           className="flex-1 flex items-center justify-center bg-stone-100 hover:bg-stone-200 text-stone-600 text-sm rounded-md py-2.5 transition-colors no-underline"
         >
           <GoogleIcon /> Google

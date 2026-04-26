@@ -2,15 +2,12 @@ import { drizzle } from 'drizzle-orm/node-postgres';
 import pg from 'pg';
 import * as schema from './schema';
 import 'dotenv/config';
+import { DATABASE_URL } from '../config/config.config';
 
 
-// Hardcoded connection string
-// const connectionString = 'postgresql://store:store@localhost:5432/store'; 
-
-const connectionString = process.env.DATABASE_URL; 
 
 export const pool = new pg.Pool({
-  connectionString
+  connectionString: DATABASE_URL
 });
 
 // The `schema` object is important for relations to work
